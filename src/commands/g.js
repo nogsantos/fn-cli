@@ -12,19 +12,24 @@ const log = require(`${_cliPath}/resources/log.js`);
 
 // const Skeleton = require(`${_cliPath}/resources/skeleton.js`);
 const AngularModule = require(`${_cliPath}/resources/angular-module.js`);
-
+/**
+ * List skeletons
+ */
 const list = [{
     type: 'list',
     name: 'skeleton',
     message: 'What skeleton do you want to get?',
     choices: [
-        'Angular App',
         'Angular AMD module',
-        'Javascript AMD module',
-        'Aurelia',
-        'React'
+        // 'Javascript AMD module',
+        // 'Angular App',
+        // 'Aurelia App',
+        // 'React App'
     ]
 }];
+/**
+ * Questions to generating the package
+ */
 const questions = [{
         type: 'input',
         name: 'package_name',
@@ -41,7 +46,7 @@ const questions = [{
         name: 'username',
         message: 'Github username',
         default: function () {
-            return 'uninformed';
+            return 'nogsantos';
         }
     },
     {
@@ -49,7 +54,7 @@ const questions = [{
         name: 'name',
         message: 'What\'s your name',
         default: function () {
-            return 'uninformed';
+            return 'Fabricio Nogueira';
         }
     },
     {
@@ -57,7 +62,7 @@ const questions = [{
         name: 'email',
         message: 'What\'s your e-mail address',
         validate: function (value) {
-            if (value === 'uninformed@mail') {
+            if (value === 'nogsantos@gmail.com') {
                 return true;
             }
             var pass = value.match(
@@ -69,7 +74,7 @@ const questions = [{
             return 'Please enter a valid e-mail address';
         },
         default: function () {
-            return 'uninformed@mail';
+            return 'nogsantos@gmail.com';
         }
     },
     {
@@ -77,7 +82,7 @@ const questions = [{
         name: 'url',
         message: 'What\'s your website address',
         validate: function (value) {
-            if (value === 'http://notknow.com') {
+            if (value === 'http://fabricionogueira.me') {
                 return true;
             }
             var pass = value.match(
@@ -89,23 +94,24 @@ const questions = [{
             return 'Please enter a valid url address';
         },
         default: function () {
-            return 'http://notknow.com';
+            return 'http://fabricionogueira.me';
         }
     }
 ];
 /**
- * Gerador Angular para desenvolvimento de módulos
- *
+ * Generate
  */
 module.exports = class GenerateCommand extends Command {
     /**
-     * Construtor.
+     * Creates an instance of GenerateCommand.
      */
     constructor() {
         super('g');
     }
     /**
-     * Ajuda para utilizar o comando.
+     * Command Help
+     *
+     * @returns
      */
     help() {
         return {
@@ -114,7 +120,12 @@ module.exports = class GenerateCommand extends Command {
         };
     }
     /**
-     * Execução do comando
+     * Run
+     *
+     * @param {any} args
+     * @param {any} flags
+     * @param {any} vflags
+     * @param {any} callback
      */
     run(args, flags, vflags, callback) {
         const prompt = inquirer.createPromptModule();
@@ -125,8 +136,6 @@ module.exports = class GenerateCommand extends Command {
                     this.init();
                     let skeleton = new AngularModule(answers.package_name, answers.username, answers.name, answers.email, answers.url);
                     skeleton.generate();
-                    // console.log(JSON.stringify(answers, null, '  '));
-                    this.end();
                 });
             } catch (error) {
                 log.e("Erro ao executar o comando. Consulte o manual para maiores informações: fn-cli help");
@@ -136,29 +145,13 @@ module.exports = class GenerateCommand extends Command {
         });
     }
     /**
-     * Método para criação dos diretórios, caso não existam.
-     */
-    createDir(cd, modulePath) {
-        for (let i = 0; i < modulePath.length; i++) {
-            cd += '/' + modulePath[i];
-            if (!fs.existsSync(cd)) {
-                try {
-                    fs.mkdirSync(cd);
-                    log.s(`/${modulePath[i]}`, 'Diretório criado');
-                } catch (error) {
-                    log.e(`/${modulePath[i]}`, 'Falha na criação do diretório');
-                }
-            }
-        }
-    }
-    /**
-     *
+     * Add a title to console
      */
     init() {
         log.bgi("******************** The great Houdine will work now ********************");
     }
     /**
-     *
+     * Add footer to console
      */
     end() {
         log.bgg("******************** The end! ********************");
