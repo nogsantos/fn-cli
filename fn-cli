@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+if (process.argv.slice(2).length === 0) {
+    console.log("Erro:", "\n\tPara maiores informações, consulte o manual: fn-cli help\n");
+    return;
+}
+
+const Cli = require('./src/index.js');
+const command = new Cli();
+command.cliCommands();
