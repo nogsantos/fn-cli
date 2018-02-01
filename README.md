@@ -27,7 +27,7 @@ Select the skeleton
 
 ![Select](https://res.cloudinary.com/nogsantos/image/upload/v1517511037/Screenshot_from_2018-02-01_16-45-25_eplold.png)
 
-Fill some packages info
+Fill in some informations
 
 ![Package info](https://res.cloudinary.com/nogsantos/image/upload/v1517511037/Screenshot_from_2018-02-01_16-45-56_erhv4b.png)
 
