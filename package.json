@@ -13,7 +13,7 @@
     "semantic-release": "semantic-release",
     "prebuild": "rimraf dist",
     "build": "npm-run-all --parallel build:*",
-    "build:main": "babel  --no-comments --copy-files --out-dir dist --ignore tests/*.test.js src",
+    "build:main": "babel  --no-comments --out-dir dist --ignore tests/ src --copy-files",
     "travis-deploy-once": "travis-deploy-once"
   },
   "repository": {
@@ -80,7 +80,6 @@
   },
   "babel": {
     "presets": [
-      "env",
       "stage-2"
     ],
     "env": {

@@ -23,11 +23,23 @@ npm i g fn-cli
 fn-cli g
 ```
 
+Select the skeleton
+
+![Select](https://res.cloudinary.com/nogsantos/image/upload/v1517511037/Screenshot_from_2018-02-01_16-45-25_eplold.png)
+
+Fill some packages info
+
+![Package info](https://res.cloudinary.com/nogsantos/image/upload/v1517511037/Screenshot_from_2018-02-01_16-45-56_erhv4b.png)
+
 ### Help
 
 ```shell
 fn-cli help
 ```
+
+[WIP] Will be improved...
+
+![Help](https://res.cloudinary.com/nogsantos/image/upload/v1517511037/Screenshot_from_2018-02-01_16-45-04_eaa3sv.png)
 
 ## License
 
