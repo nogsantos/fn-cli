@@ -1,9 +1,9 @@
-const resource = require(`./resources/functions.js`);
+const Functions = require(`./resources/functions.js`);
 const CommandLineInterface = require('cmnd').CommandLineInterface;
 /**
  * Index of client
  */
-module.exports = class Cli extends CommandLineInterface {
+class Cli extends CommandLineInterface {
     /**
      * Creates an instance of Cli.
      */
@@ -19,7 +19,8 @@ module.exports = class Cli extends CommandLineInterface {
             /**
              * Logo
              */
-            resource.displayLogo();
+            const func = new Functions();
+            func.displayLogo();
             /**
              * Loading and run
              */
@@ -28,3 +29,5 @@ module.exports = class Cli extends CommandLineInterface {
         });
     }
 }
+
+module.exports = Cli;

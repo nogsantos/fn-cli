@@ -2,9 +2,9 @@
 var exec = require("exec-sh");
 var replace = require('replace');
 /**
- *
+ * Create for angular
  */
-module.exports = class AngularModule {
+class AngularModule {
     /**
      * Creates an instance of AngularModule.
      * @param {any} package_name
@@ -76,3 +76,5 @@ module.exports = class AngularModule {
         });
     }
 }
+
+module.exports = AngularModule;

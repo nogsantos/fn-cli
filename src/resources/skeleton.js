@@ -1,7 +1,7 @@
 /**
- *
+ * Factory of generates
  */
-module.exports = class Skeleton {
+class Skeleton {
 
     constructor(package_name, username, name, email, url){
         this.package_name = package_name;
@@ -16,4 +16,6 @@ module.exports = class Skeleton {
         throw new Error("This method must be overwritten!");
     }
 
-}
+};
+
+module.exports = Skeleton;

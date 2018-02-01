@@ -1,17 +1,7 @@
-const path = require('path');
-const _cliPath = path.join(__dirname, '..');
-const _appPath = path.join(process.cwd(), '..');
-
 const Command = require('cmnd').Command;
-const fs = require('fs');
-const inflect = require('i')(true);
 const inquirer = require('inquirer');
-
-let srcDir = `${_appPath}/src`;
-const log = require(`${_cliPath}/resources/log.js`);
-
-// const Skeleton = require(`${_cliPath}/resources/skeleton.js`);
-const AngularModule = require(`${_cliPath}/resources/angular-module.js`);
+const Log = require(`../resources/log.js`);
+const AngularModule = require(`../resources/angular-module.js`);
 /**
  * List skeletons
  */
@@ -101,12 +91,13 @@ const questions = [{
 /**
  * Generate
  */
-module.exports = class GenerateCommand extends Command {
+class GenerateCommand extends Command {
     /**
      * Creates an instance of GenerateCommand.
      */
     constructor() {
         super('g');
+        this.log = new Log();
     }
     /**
      * Command Help
@@ -131,16 +122,16 @@ module.exports = class GenerateCommand extends Command {
         const prompt = inquirer.createPromptModule();
         prompt(list).then(result => {
             try {
-                log.i(`Chosen: ${result.skeleton} `, 'Info');
+                this.log.i(`Chosen: ${result.skeleton} `, 'Info');
                 inquirer.prompt(questions).then(answers => {
                     this.init();
                     let skeleton = new AngularModule(answers.package_name, answers.username, answers.name, answers.email, answers.url);
                     skeleton.generate();
                 });
             } catch (error) {
-                log.e("Erro ao executar o comando. Consulte o manual para maiores informações: fn-cli help");
-                log.a(error, "Log do erro");
-                log.bgm("\n(!) Erro! Dê uma olhada na linha acima, no Log do erro\n");
+                this.log.e("Erro ao executar o comando. Consulte o manual para maiores informações: fn-cli help");
+                this.log.a(error, "Log do erro");
+                this.log.bgm("\n(!) Erro! Dê uma olhada na linha acima, no Log do erro\n");
             }
         });
     }
@@ -148,12 +139,8 @@ module.exports = class GenerateCommand extends Command {
      * Add a title to console
      */
     init() {
-        log.bgi("******************** The great Houdine will work now ********************");
+        this.log.bgi("******************** The great Houdine will work now ********************");
     }
-    /**
-     * Add footer to console
-     */
-    end() {
-        log.bgg("******************** The end! ********************");
     }
-};
+
+module.exports = GenerateCommand;

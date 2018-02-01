@@ -1,9 +1,12 @@
 const tty = require('tty');
 const fs = require(`./file-system.js`);
-
-module.exports = new class Resource {
+/**
+ * Default functions
+ *
+ */
+class Functions {
     /**
-     *
+     * Display the logo on console
      */
     displayLogo() {
         if (this.getWidth() < 50) {
@@ -16,7 +19,7 @@ module.exports = new class Resource {
         }
     }
     /**
-     *
+     * Clear the console
      */
     clearScreen() {
         // let lines = process.stdout.getWindowSize()[1];
@@ -26,19 +29,19 @@ module.exports = new class Resource {
         return Promise.resolve();
     }
     /**
-     *
+     * Get screen width
      */
     getWidth() {
         return this.getWindowSize().width;
     }
     /**
-     *
+     * Get screen height
      */
     getHeight() {
         return this.getWindowSize().height;
     }
     /**
-     *
+     * Get user window size
      */
     getWindowSize() {
         var width;
@@ -65,4 +68,6 @@ module.exports = new class Resource {
             width: width
         };
     }
-}();
+}
+
+module.exports = Functions;

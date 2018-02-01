@@ -1,8 +1,8 @@
 const colors = require('colors/safe');
 /**
- * Logs no sistema.
+ * Sytem style logs.
  */
-module.exports = new class Log {
+class Log {
     i(msg, titulo) {
         this.showLog(`${colors.bold.blue(`(i) ${titulo || "Informação"}`)}:`, `\n\t${msg}`);
     }
@@ -33,4 +33,6 @@ module.exports = new class Log {
     showLog(titulo, msg) {
         console.log(titulo, msg);
     }
-}();
+}
+
+module.exports = Log;

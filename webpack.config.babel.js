@@ -6,15 +6,16 @@ const include = join(__dirname, "src");
 
 export default {
     entry: "./src/index",
+    target: 'node',
     output: {
         path: join(__dirname, "dist"),
-        libraryTarget: "umd",
-        library: "darkSoulsNames",
+        library: "fn-cli",
     },
     devtool: "source-map",
     module: {
-        loaders: [{
-                test: /\.js$/,
+        loaders: [
+            {
+                test: /\.js fn-cli$/,
                 loader: "babel-loader",
                 include
             },
