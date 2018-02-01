@@ -1,7 +1,7 @@
 # fn-cli
 
 [![Travis](https://img.shields.io/travis/fn-cli/fn-cli.svg?style=flat-square)](https://travis-ci.org/nogsantos/fn-cli)
-[![NPM version](https://img.shields.io/keleton-npm-angular/v/fn-cli.svg?style=flat-square)](https://npmjs.org/package/skeleton-npm-angular-pkg)
+[![NPM version](https://img.shields.io/fn-cli/v/fn-cli.svg?style=flat-square)](https://npmjs.org/package/fn-cli)
 [![NPM downloads](https://img.shields.io/npm/dm/fn-cli.svg?style=flat-square)](https://www.npmjs.com/package/fn-cli)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 

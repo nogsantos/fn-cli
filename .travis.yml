@@ -7,8 +7,6 @@ branches:
         - master
 notifications:
   email: false
-node_js:
-  - '9'
 before_script:
   - npm prune
 script:
@@ -17,4 +15,4 @@ script:
   - npm run build
 after_success:
   - npm run report-coverage
-  - npm run travis-deploy-once "npm run semantic-release"
+  - npm run semantic-release
