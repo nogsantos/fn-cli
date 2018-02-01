@@ -1,5 +1,6 @@
 const tty = require('tty');
 const fs = require(`./file-system.js`);
+const Log = require(`./log.js`);
 /**
  * Default functions
  *
@@ -9,24 +10,17 @@ class Functions {
      * Display the logo on console
      */
     displayLogo() {
+        this.log = new Log();
         if (this.getWidth() < 50) {
-            log.i('nogsantos' + os.EOL);
-            return;
+            const logo = 'nogsantos';
+            this.log.i(logo);
+            return false;
         } else {
             let logoLocation = require.resolve(`./logo.txt`);
             const logo = fs.readFileSync(logoLocation);
             console.log(logo.toString());
+            return true;
         }
-    }
-    /**
-     * Clear the console
-     */
-    clearScreen() {
-        // let lines = process.stdout.getWindowSize()[1];
-        // for(let i = 0; i < lines; i++) {
-        //     console.log('\x1Bc');
-        // }
-        return Promise.resolve();
     }
     /**
      * Get screen width

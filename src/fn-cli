@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 if (process.argv.slice(2).length === 0) {
-    console.log("Erro:", "\n\tPara maiores informações, consulte o manual: fn-cli help\n");
+    console.log("Error:", "For more informations, see the manual: fn-cli help\n");
     return;
 }
 

@@ -4,16 +4,16 @@ const colors = require('colors/safe');
  */
 class Log {
     i(msg, titulo) {
-        this.showLog(`${colors.bold.blue(`(i) ${titulo || "Informação"}`)}:`, `\n\t${msg}`);
+        this.showLog(`${colors.bold.blue(`(i) ${titulo || "Info"}`)}:`, `\n\t${msg}`);
     }
     e(msg, titulo) {
-        this.showLog(`${colors.bold.red(`(x) ${titulo || "Erro"}`)}`, `\n\t${msg}`);
+        this.showLog(`${colors.bold.red(`(x) ${titulo || "Error"}`)}`, `\n\t${msg}`);
     }
     a(msg, titulo) {
-        this.showLog(`${colors.bold.yellow(`(!) ${titulo || "Atenção"}`)}:`, `\n\t${msg}`);
+        this.showLog(`${colors.bold.yellow(`(!) ${titulo || "Attention"}`)}:`, `\n\t${msg}`);
     }
     s(msg, titulo) {
-        this.showLog(`${colors.bold.green(`(v) ${titulo || "Sucesso"}`)}:`, `\n\t${msg}`);
+        this.showLog(`${colors.bold.green(`(v) ${titulo || "Success"}`)}:`, `\n\t${msg}`);
     }
     g(msg, titulo) {
         this.showLog(`${colors.bold.grey(`[MSG] ${titulo || ""}`)}:`, `\n\t${msg}`);
@@ -32,6 +32,14 @@ class Log {
     }
     showLog(titulo, msg) {
         console.log(titulo, msg);
+    }
+    ask(question) {
+        // console.log(question);
+        return new Promise(function (resolve) {
+            process.stdin.once('data', function (data) {
+                resolve(data.toString().trim());
+            });
+        });
     }
 }
 
