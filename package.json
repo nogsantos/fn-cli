@@ -1,5 +1,5 @@
 {
-  "name": "fn-cli",
+  "name": "@nogsantos/fn-cli",
   "version": "0.0.0-development",
   "description": "CLI generators",
   "main": "fn-cli",
