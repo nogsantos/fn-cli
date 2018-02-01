@@ -3,7 +3,7 @@ cache:
   directories:
     - "node_modules"
 node_js:
-  - "iojs"
+  - "node"
 branches:
     only:
         - master
