@@ -12,7 +12,7 @@ CLI to get skeletons
 If necessary use ```sudo```
 
 ```shell
-npm i g fn-cli
+npm i -g @nogsantos/fn-cli
 ```
 
 ## Run

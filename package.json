@@ -47,6 +47,7 @@
         "colors": "1.1.2",
         "replace": "0.3.0",
         "exec-sh": "0.2.1",
+        "cmnd": "0.2.1",
         "inquirer": "5.0.1"
     },
     "devDependencies": {
@@ -58,7 +59,6 @@
         "babel-register": "6.26.0",
         "bdd-stdin": "0.2.0",
         "chai": "4.1.2",
-        "cmnd": "0.2.1",
         "codecov.io": "0.1.6",
         "commitizen": "2.9.6",
         "cz-conventional-changelog": "2.1.0",
