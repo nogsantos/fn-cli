@@ -33,6 +33,7 @@ class Skeleton {
         ];
 
         const packagejson = `${this.package_name}/package.json`;
+        const webpack = `${this.package_name}/webpack.config.babel.js`;
         const readme = `${this.package_name}/README.md`;
 
         exec(commands, null, err => {
@@ -43,7 +44,7 @@ class Skeleton {
             replace({
                 regex: '--pkg-name',
                 replacement: this.package_name,
-                paths: [packagejson, readme],
+                paths: [packagejson, readme, webpack],
                 recursive: true,
                 silent: true,
             });
