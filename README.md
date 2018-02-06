@@ -37,7 +37,7 @@ Fill in some informations
 fn-cli help
 ```
 
-[WIP] Will be improved...
+[WIP]
 
 ![Help](https://res.cloudinary.com/nogsantos/image/upload/v1517511037/Screenshot_from_2018-02-01_16-45-04_eaa3sv.png)
 
