@@ -17,6 +17,10 @@ const list = [{
         {
             name: 'Javascript UMD NPM',
             value: 'https://github.com/nogsantos/skeleton-npm-javascript-pkg.git'
+        },
+        {
+            name: 'Java for RestFull API',
+            value: 'https://github.com/nogsantos/skeleton-java-api.git'
         }
     ]
 }];

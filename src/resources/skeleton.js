@@ -1,5 +1,6 @@
-var exec = require("exec-sh");
-var replace = require('replace');
+const exec = require("exec-sh");
+const replace = require('replace');
+const fs = require('fs');
 /**
  * Factory of generates
  */
@@ -31,52 +32,69 @@ class Skeleton {
             `cd ${this.package_name}`,
             `rm -rf .git/`
         ];
-
-        const packagejson = `${this.package_name}/package.json`;
-        const webpack = `${this.package_name}/webpack.config.babel.js`;
-        const readme = `${this.package_name}/README.md`;
-
         exec(commands, null, err => {
             if (err) {
                 console.log("Exit code: ", err.code);
                 return;
             }
+            let replaceFiles = [...this.filesToReplace()];
             replace({
                 regex: '--pkg-name',
                 replacement: this.package_name,
-                paths: [packagejson, readme, webpack],
+                paths: replaceFiles,
                 recursive: true,
                 silent: true,
             });
             replace({
                 regex: '--username',
                 replacement: this.username,
-                paths: [packagejson, readme],
+                paths: replaceFiles,
                 recursive: true,
                 silent: true,
             });
             replace({
                 regex: '--author-name',
                 replacement: this.name,
-                paths: [packagejson, readme],
+                paths: replaceFiles,
                 recursive: true,
                 silent: true,
             });
             replace({
                 regex: '--author-email',
                 replacement: this.email,
-                paths: [packagejson],
+                paths: replaceFiles,
                 recursive: true,
                 silent: true,
             });
             replace({
                 regex: '--author-url',
                 replacement: this.url,
-                paths: [packagejson, readme],
+                paths: replaceFiles,
                 recursive: true,
                 silent: true,
             });
         });
+    }
+    /**
+     * Get files to replace values
+     *
+     * @returns Array
+     * @memberof Skeleton
+     */
+    filesToReplace() {
+        let files = [];
+        [
+            `${this.package_name}/package.json`,
+            `${this.package_name}/webpack.config.babel.js`,
+            `${this.package_name}/README.md`,
+            `${this.package_name}/setup.sh`,
+            `${this.package_name}/docker-compose.yml`,
+        ].forEach(filename => {
+            if (fs.existsSync(filename)) {
+                files.push(filename);
+            }
+        });
+        return files;
     }
 }
 
