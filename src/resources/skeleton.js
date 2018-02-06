@@ -76,9 +76,9 @@ class Skeleton {
         });
     }
     /**
+     * Get files to replace values
      *
-     *
-     * @returns
+     * @returns Array
      * @memberof Skeleton
      */
     filesToReplace() {
