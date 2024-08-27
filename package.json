@@ -73,7 +73,7 @@
         "rimraf": "2.6.2",
         "semantic-release": "^12.4.1",
         "travis-deploy-once": "^4.3.3",
-        "webpack": "3.10.0"
+        "webpack": "5.94.0"
     },
     "config": {
         "commitizen": {
